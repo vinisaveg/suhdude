@@ -9,10 +9,6 @@ import MessagesPage from '../pages/MessagesPage/MessagesPage';
 import SettingsPanel from '../pages/SettingsPanel/SettingsPanel';
 
 const App: FunctionComponent = () => {
-    // const appInitializer = (appName: string) => {
-    //     return (status: string) => `${appName} ${status}`;
-    // };
-    // const Hello: JSX.Element = <h1>{appInitializer('Suhdude')('Initialized')}</h1>;
 
     return (
         <Wrapper>

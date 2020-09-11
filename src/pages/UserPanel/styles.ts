@@ -14,6 +14,7 @@ const Panel: StyledComponent<'div', {}, {}> = styled.div<{}>`
 
 export const AvatarWrapper: StyledComponent<'div', {}> = styled.div<{}>`
     width: 60px;
+    min-width: 50px;
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
@@ -21,6 +22,7 @@ export const AvatarWrapper: StyledComponent<'div', {}> = styled.div<{}>`
 
 export const Avatar: StyledComponent<'img', {}, {}> = styled.img<{}>`
     width: 60px;
+    min-width: 50px;
     height: 60px;
 `;
 

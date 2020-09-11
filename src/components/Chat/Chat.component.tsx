@@ -1,18 +1,44 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+
 import ChatWrapper from './styles';
-import { AvatarWrapper, Avatar } from './styles';
+
+import {
+    AvatarWrapper,
+    Avatar,
+    InfoWrapper,
+    ChatName,
+    ChatLastMessage,
+    LastMessageTime,
+} from './styles';
 
 interface ChatProps {
     avatar: string;
     chatName: string;
+    chatLastMessage: string;
+    lastMessageTime: number;
+    isSelected: boolean;
 }
 
-const Chat: FunctionComponent<ChatProps> = ({ avatar, chatName }) => {
+const Chat: FunctionComponent<ChatProps> = ({
+    avatar,
+    chatName,
+    chatLastMessage,
+    lastMessageTime,
+}) => {
+    const [isSelected, setIsSelected] = useState(false);
+
     return (
-        <ChatWrapper>
+        <ChatWrapper isSelected={isSelected} onClick={() => setIsSelected(!isSelected)}>
             <AvatarWrapper>
-                <Avatar src="https://avatars1.githubusercontent.com/u/55714745?s=460&u=65d2f7a9eff8bf32aa735c1e956495212ecab25d&v=4" />
+                <Avatar src={avatar} />
             </AvatarWrapper>
+
+            <InfoWrapper>
+                <ChatName>{chatName}</ChatName>
+                <ChatLastMessage>{chatLastMessage}</ChatLastMessage>
+            </InfoWrapper>
+
+            <LastMessageTime>{lastMessageTime} min.</LastMessageTime>
         </ChatWrapper>
     );
 };
