@@ -11,6 +11,21 @@ const Page: StyledComponent<'div', {}, {}> = styled.div<{}>`
     padding: 30px 0px;
     background-color: #8f93e7;
     border-radius: 24px 0px 0px 0px;
+
+    /* Testing scrollbars */
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: #8489ea;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #8f93e7;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #8084e9;
+        border-radius: 6px;
+    }
 `;
 
 export const ChatsWrapper: StyledComponent<'div', {}, {}> = styled.div<{}>`

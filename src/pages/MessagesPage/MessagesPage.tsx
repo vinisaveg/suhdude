@@ -1,19 +1,38 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import Message from '../../components/Message/Message.component';
-import Page, { CurrentChatName } from './styles';
+import Page, {
+    CurrentChatName,
+    MessageInput,
+    MessageInputWrapper,
+    PageWrapper,
+} from './styles';
 
 const MessagesPage: FunctionComponent = () => {
-    return (
-        <Page>
-            <CurrentChatName>Scary Terry</CurrentChatName>
+    const pageRef = useRef<HTMLDivElement>(null);
 
-            <Message isUser />
-            <Message />
-            <Message />
-            <Message isUser />
-            <Message isUser />
-            <Message />
-        </Page>
+    useEffect(() => {
+        pageRef.current?.scrollTo(0, pageRef.current.scrollHeight);
+    }, []);
+
+    return (
+        <PageWrapper>
+            <Page ref={pageRef}>
+                <CurrentChatName>Scary Terry</CurrentChatName>
+
+                <Message isUser />
+                <Message />
+                <Message isUser />
+                <Message />
+                <Message isUser />
+                <Message />
+                <Message isUser />
+                <Message />
+            </Page>
+
+            <MessageInputWrapper>
+                <MessageInput type="text" placeholder="Type something..." />
+            </MessageInputWrapper>
+        </PageWrapper>
     );
 };
 

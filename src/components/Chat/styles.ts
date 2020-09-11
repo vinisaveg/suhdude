@@ -12,7 +12,6 @@ const ChatWrapper: StyledComponent<'div', {}, { isSelected: boolean }> = styled.
     padding: 20px;
     color: #ffffff;
     margin: 10px 0px;
-    transition: 100ms ease;
     cursor: pointer;
 
     &:hover {

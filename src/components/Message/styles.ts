@@ -1,4 +1,14 @@
-import styled, { StyledComponent } from 'styled-components';
+import styled, { StyledComponent, Keyframes, keyframes } from 'styled-components';
+
+const showUpAnimation: Keyframes = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+`;
 
 const MessageWrapper: StyledComponent<'div', {}, { isUser?: boolean }> = styled.div<{
     isUser?: boolean;
@@ -9,6 +19,9 @@ const MessageWrapper: StyledComponent<'div', {}, { isUser?: boolean }> = styled.
     justify-content: ${(props) => (props.isUser ? 'flex-end' : 'flex-start')};
     padding: 10px 0px;
     margin-bottom: 5px;
+    opacity: 0;
+    animation: ${showUpAnimation} 250ms forwards;
+    transition: 150ms ease-in-out;
 `;
 
 export const AvatarWrapper: StyledComponent<
