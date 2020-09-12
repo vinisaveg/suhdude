@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
+
 import Message from '../../components/Message/Message.component';
+
 import Page, {
     CurrentChatName,
     MessageInput,
@@ -19,10 +21,6 @@ const MessagesPage: FunctionComponent = () => {
             <Page ref={pageRef}>
                 <CurrentChatName>Scary Terry</CurrentChatName>
 
-                <Message isUser />
-                <Message />
-                <Message isUser />
-                <Message />
                 <Message isUser />
                 <Message />
                 <Message isUser />
