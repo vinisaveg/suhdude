@@ -8,6 +8,7 @@ import UserPanel from '../pages/UserPanel/UserPanel';
 import ChatPage from '../pages/ChatPage/ChatPage';
 import MessagesPage from '../pages/MessagesPage/MessagesPage';
 import SettingsPanel from '../pages/SettingsPanel/SettingsPanel';
+// import SignIn from '../pages/SignIn/SignIn';
 
 const App: FunctionComponent = () => {
     return (
@@ -18,12 +19,14 @@ const App: FunctionComponent = () => {
                     <ChatPage />
 
                     <Switch>
-                        {/* <Route path="/" children={<MessagesPage />} /> */}
+                        <Route exact path="/" children={<MessagesPage />} />
                         <Route path="/chat/:chatId" children={<MessagesPage />} />
                     </Switch>
 
                     <SettingsPanel />
                 </MainPage>
+
+                {/* <SignIn /> */}
             </Wrapper>
         </Router>
     );

@@ -26,7 +26,6 @@ const MessagesPage: FunctionComponent = () => {
                 .doc(chatId)
                 .onSnapshot((snapshot) => {
                     setChatName(snapshot.data()?.name);
-                    console.log(snapshot);
                 });
         }
     }, [chatId]);
