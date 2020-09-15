@@ -1,4 +1,6 @@
-import React, { FunctionComponent, useEffect, useRef } from 'react';
+import database from '../../environment/firebase';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Message from '../../components/Message/Message.component';
 
@@ -11,15 +13,28 @@ import Page, {
 
 const MessagesPage: FunctionComponent = () => {
     const pageRef = useRef<HTMLDivElement>(null);
+    const [chatName, setChatName] = useState('');
+
+    const { chatId } = useParams<{ chatId: string }>();
 
     useEffect(() => {
         pageRef.current?.scrollTo(0, pageRef.current.scrollHeight);
-    }, []);
+
+        if (chatId) {
+            database
+                .collection('chats')
+                .doc(chatId)
+                .onSnapshot((snapshot) => {
+                    setChatName(snapshot.data()?.name);
+                    console.log(snapshot);
+                });
+        }
+    }, [chatId]);
 
     return (
         <PageWrapper>
             <Page ref={pageRef}>
-                <CurrentChatName>Scary Terry</CurrentChatName>
+                <CurrentChatName>{chatName}</CurrentChatName>
 
                 <Message isUser />
                 <Message />

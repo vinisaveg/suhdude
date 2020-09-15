@@ -11,20 +11,21 @@ import SettingsPanel from '../pages/SettingsPanel/SettingsPanel';
 
 const App: FunctionComponent = () => {
     return (
-        <Wrapper>
-            <MainPage>
-                <UserPanel />
-                <ChatPage />
+        <Router>
+            <Wrapper>
+                <MainPage>
+                    <UserPanel />
+                    <ChatPage />
 
-                <Router>
                     <Switch>
-                        <Route path="/" children={<MessagesPage />} />
+                        {/* <Route path="/" children={<MessagesPage />} /> */}
+                        <Route path="/chat/:chatId" children={<MessagesPage />} />
                     </Switch>
-                </Router>
 
-                <SettingsPanel />
-            </MainPage>
-        </Wrapper>
+                    <SettingsPanel />
+                </MainPage>
+            </Wrapper>
+        </Router>
     );
 };
 
