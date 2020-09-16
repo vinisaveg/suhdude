@@ -1,6 +1,6 @@
 import React, { createContext, FunctionComponent, useReducer } from 'react';
 
-import userReducer, { INITIAL_STATE } from './userReducer';
+import appReducer, { INITIAL_STATE } from './userReducer';
 
 interface AppContextProps {
     state: any;
@@ -13,7 +13,7 @@ export const AppContext = createContext<AppContextProps>({
 });
 
 const ContextProvider: FunctionComponent = ({ children }) => {
-    const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
+    const [state, dispatch] = useReducer(appReducer, INITIAL_STATE);
 
     return (
         <AppContext.Provider value={{ state, dispatch }}>

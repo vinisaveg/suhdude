@@ -26,7 +26,11 @@ export const CurrentChatName: StyledComponent<'h1', {}, {}> = styled.h1<{}>`
     margin-bottom: 30px;
 `;
 
-export const MessageInputWrapper: StyledComponent<'div', {}, {}> = styled.div<{}>`
+export const MessageInputWrapper: StyledComponent<
+    'form',
+    {},
+    {}
+> = styled.form<{}>`
     width: 100%;
     height: 100px;
     display: flex;

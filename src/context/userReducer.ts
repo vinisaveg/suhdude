@@ -8,7 +8,7 @@ export const actionTypes = {
     SET_CHAT_ID: 'SET_CHAT_ID',
 };
 
-const userReducer = (state: any, action: any) => {
+const appReducer = (state: any, action: any) => {
     switch (action.type) {
         case actionTypes.SET_USER:
             return {
@@ -25,4 +25,4 @@ const userReducer = (state: any, action: any) => {
     }
 };
 
-export default userReducer;
+export default appReducer;
