@@ -1,9 +1,13 @@
 import styled, { StyledComponent } from 'styled-components';
 
-const ChatWrapper: StyledComponent<'div', {}, { isSelected: boolean }> = styled.div<{
+const ChatWrapper: StyledComponent<
+    'div',
+    {},
+    { isSelected: boolean }
+> = styled.div<{
     isSelected: boolean;
 }>`
-    width: 97%;
+    width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
@@ -15,7 +19,8 @@ const ChatWrapper: StyledComponent<'div', {}, { isSelected: boolean }> = styled.
     cursor: pointer;
 
     &:hover {
-        background-color: ${(props) => (props.isSelected ? '#6569CB' : '#9b9fed')};
+        background-color: ${(props) =>
+            props.isSelected ? '#6569CB' : '#9b9fed'};
     }
 `;
 

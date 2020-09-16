@@ -15,7 +15,10 @@ const ChatPage: FunctionComponent = () => {
 
     useEffect(() => {
         database.collection('chats').onSnapshot((snapshot) => {
-            let newChats = snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
+            let newChats = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                data: doc.data(),
+            }));
 
             setChats(newChats);
         });

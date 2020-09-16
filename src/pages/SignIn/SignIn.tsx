@@ -1,13 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
+import { actionTypes } from '../../context/userReducer';
 
 import { auth, googleAuthProvider } from '../../environment/firebase';
 
 import Page, { SignInButton } from './styles';
 
 const SignIn: FunctionComponent = () => {
+    const { dispatch } = useContext(AppContext);
+
     const signInWithGoogle = () => {
         auth.signInWithPopup(googleAuthProvider)
-            .then((result) => console.log(result))
+            .then((result) => {
+                dispatch({
+                    type: actionTypes.SET_USER,
+                    user: result.user,
+                });
+            })
             .catch((error) => console.log(error.message));
     };
 

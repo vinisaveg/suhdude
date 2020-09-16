@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import ChatWrapper from './styles';
@@ -11,6 +11,9 @@ import {
     ChatLastMessage,
     LastMessageTime,
 } from './styles';
+
+import { AppContext } from '../../context/AppContext';
+import { actionTypes } from '../../context/userReducer';
 
 interface ChatProps {
     id: string;
@@ -28,16 +31,23 @@ const Chat: FunctionComponent<ChatProps> = ({
     lastMessageTime,
     id,
 }) => {
-    const [isSelected, setIsSelected] = useState(false);
+    const { state, dispatch } = useContext(AppContext);
 
     return (
         <Link
             to={`/chat/${id}`}
-            style={{ textDecoration: 'none', width: '97%', padding: 0, margin: 0 }}
+            style={{
+                textDecoration: 'none',
+                width: '97%',
+                padding: 0,
+                margin: 0,
+            }}
         >
             <ChatWrapper
-                isSelected={isSelected}
-                onClick={() => setIsSelected(!isSelected)}
+                isSelected={state.chatId === id ? true : false}
+                onClick={() =>
+                    dispatch({ type: actionTypes.SET_CHAT_ID, chatId: id })
+                }
             >
                 <AvatarWrapper>
                     <Avatar src={avatar} />
