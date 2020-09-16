@@ -99,6 +99,7 @@ const MessagesPage: FunctionComponent = () => {
                         }
                         key={message.id}
                         message={message.data.message}
+                        timeStamp={message.data.timestamp}
                     />
                 ))}
             </Page>

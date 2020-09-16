@@ -22,7 +22,7 @@ const SignIn: FunctionComponent = () => {
 
     return (
         <Page>
-            <h1 style={{ color: '#ffffff' }}>Sign in</h1>
+            <h1 style={{ color: '#ffffff', marginBottom: 15 }}>Sign in</h1>
 
             <SignInButton onClick={() => signInWithGoogle()} method="google">
                 Sign in with Google

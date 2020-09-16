@@ -8,7 +8,13 @@ const UserPanel: FunctionComponent = () => {
     return (
         <Panel>
             <AvatarWrapper>
-                <Avatar src={state.user ? state.user.photoURL : ''} />
+                <Avatar
+                    src={
+                        state.user
+                            ? state.user.photoURL
+                            : 'https://images-americanas.b2w.io/produtos/01/00/img/1522766/5/1522766530_1GG.jpg'
+                    }
+                />
             </AvatarWrapper>
         </Panel>
     );

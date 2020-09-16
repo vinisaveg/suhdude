@@ -23,12 +23,14 @@ export const SignInButton: StyledComponent<
     border: none;
     border-radius: 8px;
     transition: 150ms ease;
+    opacity: 0.9;
     cursor: pointer;
-    background-color: ${(props) => (props.method === 'google' ? '#ffffff' : '#222222')};
+    background-color: ${(props) =>
+        props.method === 'google' ? '#ffffff' : '#222222'};
     color: ${(props) => (props.method === 'google' ? '#222222' : '#ffffff')};
 
     &&:hover {
-        opacity: 0.8;
+        opacity: 1;
     }
 `;
 

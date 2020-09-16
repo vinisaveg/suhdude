@@ -1,4 +1,8 @@
-import styled, { StyledComponent, Keyframes, keyframes } from 'styled-components';
+import styled, {
+    StyledComponent,
+    Keyframes,
+    keyframes,
+} from 'styled-components';
 
 const showUpAnimation: Keyframes = keyframes`
     from {
@@ -10,7 +14,11 @@ const showUpAnimation: Keyframes = keyframes`
     }
 `;
 
-const MessageWrapper: StyledComponent<'div', {}, { isUser?: boolean }> = styled.div<{
+const MessageWrapper: StyledComponent<
+    'div',
+    {},
+    { isUser?: boolean }
+> = styled.div<{
     isUser?: boolean;
 }>`
     width: 100%;
@@ -53,15 +61,25 @@ export const MessageBallon: StyledComponent<
 > = styled.div<{
     isUser?: boolean;
 }>`
+    position: relative;
     width: auto;
     height: auto;
     padding: 15px;
-    margin: ${(props) => (props.isUser ? '10px 10px 0px 0px' : '0px 0px 10px 10px')};
+    margin: ${(props) =>
+        props.isUser ? '10px 10px 0px 0px' : '0px 0px 10px 10px'};
     background-color: ${(props) => (props.isUser ? '#777BD8' : '#eaeaea')};
     border-radius: ${(props) =>
         props.isUser ? '12px 12px 0px 12px' : '12px 12px 12px 0px'};
     color: ${(props) => (props.isUser ? '#ffffff' : '#383952')};
     text-align: left;
+`;
+
+export const Time: StyledComponent<'span', {}, {}> = styled.span<{}>`
+    position: absolute;
+    font-size: 12px;
+    bottom: -20px;
+    right: 0;
+    color: #929292;
 `;
 
 export default MessageWrapper;
